@@ -5,12 +5,16 @@ describe('app', () => {
   describe('AppCtrl', () => {
     let ctrl, controller, pics, appService, q, rootScope;
 
-    pics = [
-      {name: 'cool kid', description:'cool kid with mates', path:'img/pics/cool-kid.jpg' },
-      {name: 'cool kid 2', description:'cool kid with mates', path:'img/pics/cool-kid2.jpg' },
-      {name: 'cool kid 3', description:'cool kid with mates', path:'img/pics/cool-kid3.jpg' },
-      {name: 'cool kid 4', description:'cool kid with mates', path:'img/pics/cool-kid4.jpg' },
-    ];
+    pics = {
+     data: {
+      data: [
+        { name: 'cool kid', description: 'cool kid with mates', path: 'img/pics/cool-kid.jpg' },
+        { name: 'cool kid 2', description: 'cool kid with mates', path: 'img/pics/cool-kid2.jpg' },
+        { name: 'cool kid 3', description: 'cool kid with mates', path: 'img/pics/cool-kid3.jpg' },
+        { name: 'cool kid 4', description: 'cool kid with mates', path: 'img/pics/cool-kid4.jpg' },
+      ]
+    }
+  };
 
     beforeEach(() => {
       angular.mock.module(app);
@@ -31,15 +35,16 @@ describe('app', () => {
       rootScope.$digest();
     }
 
-    // it('should contain the starter url', () => {
-    //   expect(ctrl.url).toBe('https://github.com/preboot/angular-webpack');
-    // });
-
     describe('on init',() => {
 
       it('should load pics', () => {
         initController();
         expect(ctrl.pics).toEqual(pics);
+      });
+
+      it('should set load the 1st pic as currently displayed pic', () => {
+        initController();
+        expect(ctrl.currentlyDisplayedPic).toEqual(pics.data.data[0]);
       });
 
     })

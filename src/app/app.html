@@ -1,7 +1,15 @@
-<div>
-  <ul>
-    <li ng-repeat="pic in app.pics.data.data">
-      <img src="{{pic.path}}" />
-    </li>
-  </ul>
+<div class="pull-left arrow-left">
+  <i class="glyphicon glyphicon-chevron-left" title="previous" aria-hidden="true"></i>
+</div>
+<div class="pull-left">
+  <section class="current-pic-displayed">
+    <img src="{{app.currentlyDisplayedPic.path}}" alt="{{app.currentlyDisplayedPic.name}}  {{app.currentlyDisplayedPic.description}}" />
+    <div>
+      <h2>{{app.currentlyDisplayedPic.name}}</h2>
+      <p>{{app.currentlyDisplayedPic.description}}</p>
+    </div>
+  </section>
+</div>
+<div class="pull-right arrow-right">
+  <i class="glyphicon glyphicon-chevron-right" title="next" aria-hidden="true"></i>
 </div>
