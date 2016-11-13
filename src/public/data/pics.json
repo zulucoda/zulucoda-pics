@@ -1,0 +1,10 @@
+{
+  "data": [
+    {"name": "Ubuntu 1", "description":"ubuntu chips", "path":"img/pics/ubuntu_1.jpg" },
+    {"name": "Ubuntu 2", "description":"ubuntu water", "path":"img/pics/ubuntu_2.jpg" },
+    {"name": "Ubuntu 3", "description":"ubuntu stars", "path":"img/pics/ubuntu_3.png" },
+    {"name": "Ubuntu 4", "description":"ubuntu purple", "path":"img/pics/ubuntu_4.jpg" },
+    {"name": "Ubuntu 5", "description":"ubuntu tux", "path":"img/pics/ubuntu_5.jpg" },
+    {"name": "Ubuntu 6", "description":"ubuntu cli", "path":"img/pics/ubuntu_6.png" }
+  ]
+}
