@@ -18,7 +18,9 @@
   "homepage": "http://mfbproject.co.za",
   "dependencies": {
     "angular": "^1.5.0",
+    "angular-animate": "^1.5.8",
     "bootstrap": "^3.3.7",
+    "gsap": "^1.19.0",
     "lodash": "^4.16.6"
   },
   "devDependencies": {

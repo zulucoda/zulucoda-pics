@@ -1,9 +1,9 @@
 <div class="pull-left arrow-left">
-  <i class="glyphicon glyphicon-chevron-left" title="previous" aria-hidden="true" ng-click="app.previousPic()"></i>
+  <i class="glyphicon glyphicon-chevron-left" title="previous" aria-hidden="true" ng-click="app.picAnimation(); app.previousPic()"></i>
 </div>
 <div class="pull-left">
   <section class="current-pic-displayed">
-    <img src="{{app.currentlyDisplayedPic.path}}"
+    <img id="pic" src="{{app.currentlyDisplayedPic.path}}"
          alt="{{app.currentlyDisplayedPic.name}}  {{app.currentlyDisplayedPic.description}}"
          />
     <div>
@@ -13,5 +13,5 @@
   </section>
 </div>
 <div class="pull-right arrow-right">
-  <i class="glyphicon glyphicon-chevron-right" title="next" aria-hidden="true" ng-click="app.nextPic()"></i>
+  <i class="glyphicon glyphicon-chevron-right" title="next" aria-hidden="true" ng-click="app.picAnimation(); app.nextPic()"></i>
 </div>

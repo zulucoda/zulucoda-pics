@@ -1,9 +1,10 @@
 import app from '../app';
+import TweenMax from 'gsap';
 
 describe('app', () => {
 
   describe('AppCtrl', () => {
-    let ctrl, controller, pics, appService, q, rootScope;
+    let ctrl, controller, pics, appService, q, rootScope, timeout, tweenMax;
 
     pics = {
      data: {
@@ -19,18 +20,20 @@ describe('app', () => {
     beforeEach(() => {
       angular.mock.module(app);
 
-      angular.mock.inject(($controller, $q, $rootScope) => {
+      angular.mock.inject(($controller, $q, $rootScope, $timeout) => {
         controller = $controller;
         appService = jasmine.createSpyObj('AppService', ['getPics']);
         q = $q;
         rootScope = $rootScope;
         appService.getPics.and.returnValue(q.when(pics));
+        timeout = $timeout;
       });
     });
 
     function initController() {
       ctrl = controller('AppCtrl', {
-        'AppService': appService
+        'AppService': appService,
+        '$timeout': timeout
       });
       rootScope.$digest();
     }
@@ -57,24 +60,36 @@ describe('app', () => {
 
       it('should set the currently displayed pic to next pic in the list', () => {
         ctrl.nextPic();
+        timeout.flush();
         expect(ctrl.currentlyDisplayedPic).toEqual(pics.data.data[1]);
       });
 
       it('should set the currently displayed pic to the first pic, when on the last pic', () => {
         ctrl.currentlyDisplayedPic = pics.data.data[3];
         ctrl.nextPic();
+        timeout.flush();
         expect(ctrl.currentlyDisplayedPic).toEqual(pics.data.data[0]);
       });
 
       it('should set the currently displayed pic to the last pic, when on the first pic', () => {
         ctrl.previousPic();
+        timeout.flush();
         expect(ctrl.currentlyDisplayedPic).toEqual(pics.data.data[3]);
       });
 
       it('should set the currently displayed pic to previous pic', () => {
         ctrl.currentlyDisplayedPic = pics.data.data[3];
         ctrl.previousPic();
+        timeout.flush();
         expect(ctrl.currentlyDisplayedPic).toEqual(pics.data.data[2]);
+      });
+
+      it('should do pic animation', () => {
+        spyOn(TweenMax, 'to');
+        spyOn(TweenMax, 'staggerFrom');
+        ctrl.picAnimation();
+        expect(TweenMax.to).toHaveBeenCalled();
+        expect(TweenMax.staggerFrom).toHaveBeenCalled();
       });
 
     })
