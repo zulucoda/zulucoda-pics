@@ -1,5 +1,7 @@
-<div class="pull-left arrow-left">
-  <i class="glyphicon glyphicon-chevron-left" title="previous" aria-hidden="true" ng-click="app.picAnimation(); app.previousPic()"></i>
+<div class="pull-left arrow-left"
+     title="Previous Pic: {{app.previousPicDetails.name}} - {{app.previousPicDetails.description}}"
+     ng-click="app.picAnimation(); app.previousPic()">
+  <i class="glyphicon glyphicon-chevron-left" aria-hidden="true"></i>
 </div>
 <div class="pull-left">
   <section class="current-pic-displayed">
@@ -12,6 +14,7 @@
     </div>
   </section>
 </div>
-<div class="pull-right arrow-right">
-  <i class="glyphicon glyphicon-chevron-right" title="next" aria-hidden="true" ng-click="app.picAnimation(); app.nextPic()"></i>
+<div class="pull-right arrow-right" title="Next Pic: {{app.nextPicDetails.name}} - {{app.nextPicDetails.description}}"
+     ng-click="app.picAnimation(); app.nextPic()">
+  <i class="glyphicon glyphicon-chevron-right" aria-hidden="true"></i>
 </div>

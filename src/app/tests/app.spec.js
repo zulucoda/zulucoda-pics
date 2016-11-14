@@ -40,14 +40,21 @@ describe('app', () => {
 
     describe('on init',() => {
 
-      it('should load pics', () => {
+      beforeEach(() => {
         initController();
+      });
+
+      it('should load pics', () => {
         expect(ctrl.pics).toEqual(pics);
       });
 
       it('should set load the 1st pic as currently displayed pic', () => {
-        initController();
         expect(ctrl.currentlyDisplayedPic).toEqual(pics.data.data[0]);
+      });
+
+      it('should set the next & previous pic details on init', () => {
+        expect(ctrl.nextPicDetails).toEqual(pics.data.data[1]);
+        expect(ctrl.previousPicDetails).toEqual(pics.data.data[3]);
       });
 
     });
@@ -90,6 +97,20 @@ describe('app', () => {
         ctrl.picAnimation();
         expect(TweenMax.to).toHaveBeenCalled();
         expect(TweenMax.staggerFrom).toHaveBeenCalled();
+      });
+
+      it('should set the next & previous pic details on nextPic', () => {
+        ctrl.nextPic();
+        timeout.flush();
+        expect(ctrl.nextPicDetails).toEqual(pics.data.data[2]);
+        expect(ctrl.previousPicDetails).toEqual(pics.data.data[0]);
+      });
+
+      it('should set the next & previous pic details on previousPic', () => {
+        ctrl.previousPic();
+        timeout.flush();
+        expect(ctrl.nextPicDetails).toEqual(pics.data.data[0]);
+        expect(ctrl.previousPicDetails).toEqual(pics.data.data[2]);
       });
 
     })

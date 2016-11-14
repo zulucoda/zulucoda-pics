@@ -23,24 +23,37 @@ function AppCtrl (AppService, $timeout) {
   AppService.getPics('data/pics.json').then((results) => {
     app.pics = results;
     app.currentlyDisplayedPic = app.pics.data.data[0];
+    app.nextPicDetails = app.pics.data.data[getPositionOfNextPic(1)];
+    app.previousPicDetails = app.pics.data.data[getPositionOfPreviousPic(1)];
   });
 
-  function getPositionOfNextPic () {
-    let pos = _.findIndex(app.pics.data.data, app.currentlyDisplayedPic) + 1;
+  function getPositionOfNextPic (addBy) {
+    let pos = _.findIndex(app.pics.data.data, app.currentlyDisplayedPic) + addBy;
     if (pos >= app.pics.data.data.length) {
       pos = 0;
     }
     return pos;
   }
 
-  function getPositionOfPreviousPic () {
-    let pos = _.findIndex(app.pics.data.data, app.currentlyDisplayedPic) - 1;
+  function getPositionOfPreviousPic (addBy) {
+    let pos = _.findIndex(app.pics.data.data, app.currentlyDisplayedPic) - addBy;
     if (pos <= -1) {
-      pos = app.pics.data.data.length - 1;
+      pos = app.pics.data.data.length - addBy;
     }
     return pos;
   }
 
+  function setNextDetails (current) {
+    app.previousPicDetails = current;
+    app.nextPicDetails = app.pics.data.data[getPositionOfNextPic(2)];
+  }
+
+  function setPreviousDetails (current) {
+    app.nextPicDetails = current;
+    app.previousPicDetails = app.pics.data.data[getPositionOfPreviousPic(2)];
+  }
+
+  //TODO: find a better way to do animation
   app.picAnimation = () => {
     TweenMax.to('#pic', 1.2, {opacity: 0, onComplete: () => {
       TweenMax.to('#pic', 0.5, {opacity: 1});
@@ -57,14 +70,15 @@ function AppCtrl (AppService, $timeout) {
 
   app.nextPic = () => {
     $timeout(() => {
-      app.currentlyDisplayedPic = app.pics.data.data[getPositionOfNextPic()];
+      setNextDetails(app.currentlyDisplayedPic);
+      app.currentlyDisplayedPic = app.pics.data.data[getPositionOfNextPic(1)];
     }, 1000);
-
   };
 
   app.previousPic = () => {
     $timeout(() => {
-      app.currentlyDisplayedPic = app.pics.data.data[getPositionOfPreviousPic()];
+      setPreviousDetails(app.currentlyDisplayedPic);
+      app.currentlyDisplayedPic = app.pics.data.data[getPositionOfPreviousPic(1)];
     }, 1000);
   };
 
