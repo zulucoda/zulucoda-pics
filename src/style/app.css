@@ -1,33 +1,34 @@
-.arrow-left {
-  width: 3.8em; }
-  .arrow-left i {
+.wrapper {
+  margin: 0 auto;
+  width: 1800px; }
+  .wrapper .arrow-left {
+    width: 2.8em; }
+    .wrapper .arrow-left i {
+      margin: 10em 0 0 0;
+      font-size: 3em;
+      cursor: pointer; }
+  .wrapper .current-pic-displayed {
+    margin: 0 auto; }
+    .wrapper .current-pic-displayed img {
+      width: 1700px; }
+    .wrapper .current-pic-displayed .pic-click {
+      cursor: pointer;
+      position: absolute;
+      background-color: transparent;
+      height: 450px; }
+      .wrapper .current-pic-displayed .pic-click.bottom-half {
+        margin-top: 450px; }
+    .wrapper .current-pic-displayed div {
+      position: absolute;
+      width: 91.5%;
+      background-color: transparent;
+      opacity: 0.5; }
+      .wrapper .current-pic-displayed div h2, .wrapper .current-pic-displayed div p {
+        text-align: center;
+        color: #333333; }
+  .wrapper .arrow-right i {
     margin: 10em 0 0 0;
     font-size: 3em;
     cursor: pointer; }
-
-.current-pic-displayed {
-  margin: 0 auto; }
-  .current-pic-displayed img {
-    width: 1800px; }
-  .current-pic-displayed .pic-click {
-    cursor: pointer;
-    position: absolute;
-    background-color: transparent;
-    height: 450px; }
-    .current-pic-displayed .pic-click.bottom-half {
-      margin-top: 450px; }
-  .current-pic-displayed div {
-    position: absolute;
-    width: 94.5%;
-    background-color: #000066;
-    opacity: 0.5; }
-    .current-pic-displayed div h2, .current-pic-displayed div p {
-      text-align: center;
-      color: #fff; }
-
-.arrow-right i {
-  margin: 10em 0 0 0;
-  font-size: 3em;
-  cursor: pointer; }
 
 /*# sourceMappingURL=app.css.map */

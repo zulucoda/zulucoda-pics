@@ -4,43 +4,50 @@
   cursor: pointer;
 }
 
-.arrow-left {
-  width: 3.8em;
-  i {
-    @include leftAndRightIcon();
-  }
-}
-
-.current-pic-displayed {
+.wrapper {
   margin: 0 auto;
-  img {
-    width: 1800px;
-  }
+  width: 1800px;
 
-  .pic-click {
-    cursor: pointer;
-    position: absolute;
-    background-color: transparent;
-    height: 450px;
-    &.bottom-half {
-      margin-top: 450px;
+  .arrow-left {
+    width: 2.8em;
+    i {
+      @include leftAndRightIcon();
     }
   }
 
-  div {
-    position: absolute;
-    width: 94.5%;
-    background-color: #000066;
-    opacity: 0.5;
-    h2, p {
-      text-align: center;
-      color: #fff;
+  .current-pic-displayed {
+    margin: 0 auto;
+    img {
+      width: 1700px;
+    }
+
+    .pic-click {
+      cursor: pointer;
+      position: absolute;
+      background-color: transparent;
+      height: 450px;
+      &.bottom-half {
+        margin-top: 450px;
+      }
+    }
+
+    div {
+      position: absolute;
+      width: 91.5%;
+      background-color: transparent;
+      opacity: 0.5;
+      h2, p {
+        text-align: center;
+        color: #333333;
+      }
     }
   }
+
+  .arrow-right {
+    i {
+      @include leftAndRightIcon();
+    }
+  }
+
 }
 
-.arrow-right {
-  i {
-    @include leftAndRightIcon();
-  }
-}
