@@ -1,14 +1,22 @@
 <div class="pull-left arrow-left"
      title="Previous Pic: {{app.previousPicDetails.name}} - {{app.previousPicDetails.description}}"
      ng-click="app.picAnimation(); app.previousPic()">
-  <i class="glyphicon glyphicon-chevron-left" aria-hidden="true"></i>
+  <i class="glyphicon glyphicon-chevron-left" aria-hidden="true"
+     tooltip-placement="right"
+     uib-tooltip="Previous Pic: {{app.previousPicDetails.name}} - {{app.previousPicDetails.description}}"></i>
 </div>
 <div class="pull-left">
   <section class="current-pic-displayed">
+    <div class="pic-click top-half"
+         title="Previous Pic: {{app.previousPicDetails.name}} - {{app.previousPicDetails.description}}"
+         ng-click="app.picAnimation(); app.previousPic()"></div>
+    <div class="pic-click bottom-half"
+         title="Next Pic: {{app.nextPicDetails.name}} - {{app.nextPicDetails.description}}"
+         ng-click="app.picAnimation(); app.nextPic()"></div>
     <img id="pic" src="{{app.currentlyDisplayedPic.path}}"
          alt="{{app.currentlyDisplayedPic.name}}  {{app.currentlyDisplayedPic.description}}"
          />
-    <div>
+    <div class="pic-details">
       <h2>{{app.currentlyDisplayedPic.name}}</h2>
       <p>{{app.currentlyDisplayedPic.description}}</p>
     </div>
@@ -16,5 +24,7 @@
 </div>
 <div class="pull-right arrow-right" title="Next Pic: {{app.nextPicDetails.name}} - {{app.nextPicDetails.description}}"
      ng-click="app.picAnimation(); app.nextPic()">
-  <i class="glyphicon glyphicon-chevron-right" aria-hidden="true"></i>
+  <i class="glyphicon glyphicon-chevron-right" aria-hidden="true"
+     tooltip-placement="left"
+     uib-tooltip="Next Pic: {{app.nextPicDetails.name}} - {{app.nextPicDetails.description}}"></i>
 </div>

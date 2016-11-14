@@ -4,7 +4,7 @@ import TweenMax from 'gsap';
 describe('app', () => {
 
   describe('AppCtrl', () => {
-    let ctrl, controller, pics, appService, q, rootScope, timeout, tweenMax;
+    let ctrl, controller, pics, appService, q, rootScope, timeout;
 
     pics = {
      data: {

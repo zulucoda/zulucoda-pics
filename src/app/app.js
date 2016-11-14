@@ -3,6 +3,7 @@ import appService from './app.service'
 import _ from 'lodash';
 import ngAnimate from 'angular-animate';
 import TweenMax from 'gsap';
+import tooltip from 'angular-ui-bootstrap/src/tooltip';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './../style/app.css';
@@ -86,7 +87,7 @@ function AppCtrl (AppService, $timeout) {
 
 const MODULE_NAME = 'app';
 
-angular.module(MODULE_NAME, [appService, ngAnimate])
+angular.module(MODULE_NAME, [appService, ngAnimate, tooltip])
   .directive('app', app)
   .controller('AppCtrl', AppCtrl);
 

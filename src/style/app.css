@@ -1,7 +1,7 @@
 .arrow-left {
   width: 3.8em; }
   .arrow-left i {
-    padding: 10em 0 0 0;
+    margin: 10em 0 0 0;
     font-size: 3em;
     cursor: pointer; }
 
@@ -9,6 +9,13 @@
   margin: 0 auto; }
   .current-pic-displayed img {
     width: 1800px; }
+  .current-pic-displayed .pic-click {
+    cursor: pointer;
+    position: absolute;
+    background-color: transparent;
+    height: 450px; }
+    .current-pic-displayed .pic-click.bottom-half {
+      margin-top: 450px; }
   .current-pic-displayed div {
     position: absolute;
     width: 94.5%;
@@ -19,7 +26,7 @@
       color: #fff; }
 
 .arrow-right i {
-  padding: 10em 0 0 0;
+  margin: 10em 0 0 0;
   font-size: 3em;
   cursor: pointer; }
 

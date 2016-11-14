@@ -1,5 +1,5 @@
 @mixin leftAndRightIcon() {
-  padding: 10em 0 0 0;
+  margin: 10em 0 0 0;
   font-size: 3em;
   cursor: pointer;
 }
@@ -16,6 +16,17 @@
   img {
     width: 1800px;
   }
+
+  .pic-click {
+    cursor: pointer;
+    position: absolute;
+    background-color: transparent;
+    height: 450px;
+    &.bottom-half {
+      margin-top: 450px;
+    }
+  }
+
   div {
     position: absolute;
     width: 94.5%;
