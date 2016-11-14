@@ -47,6 +47,36 @@ describe('app', () => {
         expect(ctrl.currentlyDisplayedPic).toEqual(pics.data.data[0]);
       });
 
+    });
+
+    describe('scope functions', () => {
+
+      beforeEach(() => {
+        initController();
+      });
+
+      it('should set the currently displayed pic to next pic in the list', () => {
+        ctrl.nextPic();
+        expect(ctrl.currentlyDisplayedPic).toEqual(pics.data.data[1]);
+      });
+
+      it('should set the currently displayed pic to the first pic, when on the last pic', () => {
+        ctrl.currentlyDisplayedPic = pics.data.data[3];
+        ctrl.nextPic();
+        expect(ctrl.currentlyDisplayedPic).toEqual(pics.data.data[0]);
+      });
+
+      it('should set the currently displayed pic to the last pic, when on the first pic', () => {
+        ctrl.previousPic();
+        expect(ctrl.currentlyDisplayedPic).toEqual(pics.data.data[3]);
+      });
+
+      it('should set the currently displayed pic to previous pic', () => {
+        ctrl.currentlyDisplayedPic = pics.data.data[3];
+        ctrl.previousPic();
+        expect(ctrl.currentlyDisplayedPic).toEqual(pics.data.data[2]);
+      });
+
     })
   });
 });
